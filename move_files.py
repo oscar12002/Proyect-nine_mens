@@ -4,14 +4,13 @@ from os import system
 from files_eliminations import Eliminate
 
 board_original = Board()
-
 class Move:
-    def __init__(self,board_2,player_mov,names):
+    def __init__(self, board_2, player_mov, names):
         self.board_2 = board_2
         self.names = names
         self.player_mov = player_mov
         
-    def fun_move(self,r_s,c_s,r_n,c_n):
+    def fun_move(self, r_s, c_s, r_n, c_n):
         if self.board_2.board_ret[r_s][c_s] in (self.player_mov.m_simbol, " " + self.player_mov.m_simbol + " "):
             if self.board_2.board_ret[r_s][c_s] == self.player_mov.m_simbol:
                 self.board_2.board_ret[r_s][c_s] = self.player_mov.simbol
@@ -53,7 +52,9 @@ class Move:
             [[2,4],[3,4],[4,4]],
             [[1,5],[3,4],[5,5]],
             [[0,6],[3,6],[6,6]]]
+        
         eliminate_file = Eliminate(self.board_2,self.player_mov)
+        
         change1 =[(self.player_mov.simbol,self.player_mov.simbol,self.player_mov.simbol),
                   (self.player_mov.m_simbol,self.player_mov.simbol,self.player_mov.simbol),
                   (self.player_mov.simbol,self.player_mov.m_simbol,self.player_mov.simbol),

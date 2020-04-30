@@ -2,10 +2,8 @@ from board import Board
 from os import system
 from position_verify import put_position
 
-
-
 class Eliminate:
-    def __init__(self,board_e,file_eliminate):
+    def __init__(self, board_e, file_eliminate):
         self.board_e = board_e
         self.file_eliminate = file_eliminate
         
@@ -38,4 +36,4 @@ class Eliminate:
                 if self.board_e.board_ret[row_eliminate][column_eliminate] == " ● ":
                     self.board_e.board_ret[row_eliminate][column_eliminate] = " · "
                     eliminate_turn += 1
-            
+                    
