@@ -1,7 +1,8 @@
 class File:
-    def __init__(self,simbol):
+    def __init__(self,simbol,m_simbol):
         self.simbol = simbol
-        self.quantl = 4
+        self.m_simbol = m_simbol
+        self.quantl = 6
         self.turn = 0
         
     def file_quantly(self):

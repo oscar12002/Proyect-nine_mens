@@ -14,8 +14,8 @@ name_of_player_two = input("PLAYER TWO ➡️  your files are black"+"\n"+
 
 
 board_player = Board()
-file_one = File("●")
-file_two = File("○")
+file_one = File("●","◍")
+file_two = File("○","◌")
 player_one_add = Player(board_player, file_one, name_of_player_one)
 player_two_add = Player(board_player, file_two, name_of_player_two)
 
