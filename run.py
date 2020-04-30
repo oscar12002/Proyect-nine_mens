@@ -37,51 +37,73 @@ def movements(board_2,names):
         
         move_to_row = input("move to row: ")
         pos_move_to_row = put_position(move_to_row,"move to row: ")
-        
-        
+
         move_to_column = input("move to column: ")
         pos_move_to_column = put_position(move_to_column,"move to colunm: ")
-       
-        if (pos_select_row+1, pos_select_column+1) in ((1,1), (1,4), (1,7), (4,1), (7,1), (7,4), (7,7), (4,7)):
-            if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+4), (pos_select_row+1, pos_select_column-2), (pos_select_row+4, pos_select_column+1), (pos_select_row-2, pos_select_column+1)):
-                if file_one.turn+1 > file_two.turn:
-                    player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-
-                if file_two.turn > file_one.turn:
-                    player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
         
-        if (pos_select_row+1, pos_select_column+1) in ((2,2), (2,4), (2,6), (4,2), (6,2), (6,4), (6,6), (4,6)):
-            if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+3), (pos_select_row+1, pos_select_column-1), (pos_select_row+3, pos_select_column+1), (pos_select_row-1, pos_select_column+1)):
-                if file_one.turn+1 > file_two.turn:
-                    player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+        # quantl_file1 = 0
+        # quantl_file2 = 0
+        
+        # for f in range(len(board_2.board_ret)):
+        #     for c in range(len(board_2.board_ret[f])):        
+        #         if board_2.board_ret[f][c] == file_one.simbol or board_2.board_ret[f][c] == " " + file_one.simbol + " " or board_2.board_ret[f][c] == file_one.m_simbol or board_2.board_ret[f][c] == " " + file_one.m_simbol + " ":
+        #             quantl_file1 += 1
+        #         if board_2.board_ret[f][c] == file_two.simbol or board_2.board_ret[f][c] == " " + file_two.simbol + " " or board_2.board_ret[f][c] == file_two.m_simbol or board_2.board_ret[f][c] == " " + file_two.m_simbol + " ":
+        #             quantl_file2 += 1
+                
+        # if quantl_file1 == 3:
+        #     if file_one.turn+1 > file_two.turn:
+        #         player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
 
-                if file_two.turn > file_one.turn:
-                    player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+        #     if file_two.turn > file_one.turn:
+        #         player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+        # if quantl_file2 == 3:
+        #     if file_one.turn+1 > file_two.turn:
+        #         player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+        #     if file_two.turn > file_one.turn:
+        #         player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+        if p:       
+            if (pos_select_row+1, pos_select_column+1) in ((1,1), (1,4), (1,7), (4,1), (7,1), (7,4), (7,7), (4,7)):
+                if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+4), (pos_select_row+1, pos_select_column-2), (pos_select_row+4, pos_select_column+1), (pos_select_row-2, pos_select_column+1)):
+                    if file_one.turn+1 > file_two.turn:
+                        player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+                    if file_two.turn > file_one.turn:
+                        player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+            if (pos_select_row+1, pos_select_column+1) in ((2,2), (2,4), (2,6), (4,2), (6,2), (6,4), (6,6), (4,6)):
+                if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+3), (pos_select_row+1, pos_select_column-1), (pos_select_row+3, pos_select_column+1), (pos_select_row-1, pos_select_column+1)):
+                    if file_one.turn+1 > file_two.turn:
+                        player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+                    if file_two.turn > file_one.turn:
+                        player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+                
+            if (pos_select_row+1, pos_select_column+1) in ((4,1), (4,2), (4,6), (4,7)):
+                if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+2), (pos_select_row+1, pos_select_column)):  
+                    if file_one.turn+1 > file_one.turn:
+                        player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+                    if file_two.turn > file_one.turn:
+                        player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+                            
+            if (pos_select_row+1, pos_select_column+1) in ((1,4), (2,4), (6,4), (7,4)):
+                if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+2, pos_select_column+1), (pos_select_row, pos_select_column+1)):  
+                    if file_one.turn+1 > file_two.turn:
+                        player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+
+                    if file_two.turn > file_one.turn:
+                        player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+                            
             
-        if (pos_select_row+1, pos_select_column+1) in ((4,1), (4,2), (4,6), (4,7)):
-            if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+2), (pos_select_row+1, pos_select_column)):  
-                if file_one.turn+1 > file_one.turn:
-                    player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+            if (pos_select_row+1, pos_select_column+1) in ((3,3), (3,4), (3,5), (4,3), (5,3), (5,4), (5,5), (4,5)):
+                if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+2), (pos_select_row+1, pos_select_column), (pos_select_row+2, pos_select_column+1), (pos_select_row, pos_select_column+1)):
+                    if file_one.turn+1 > file_two.turn:
+                        player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
 
-                if file_two.turn > file_one.turn:
-                    player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-                        
-        if (pos_select_row+1, pos_select_column+1) in ((1,4), (2,4), (6,4), (7,4)):
-            if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+2, pos_select_column+1), (pos_select_row, pos_select_column+1)):  
-                if file_one.turn+1 > file_two.turn:
-                    player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-
-                if file_two.turn > file_one.turn:
-                    player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-                        
-        
-        if (pos_select_row+1, pos_select_column+1) in ((3,3), (3,4), (3,5), (4,3), (5,3), (5,4), (5,5), (4,5)):
-            if (pos_move_to_row+1, pos_move_to_column+1) in ((pos_select_row+1, pos_select_column+2), (pos_select_row+1, pos_select_column), (pos_select_row+2, pos_select_column+1), (pos_select_row, pos_select_column+1)):
-                if file_one.turn+1 > file_two.turn:
-                    player_move_one.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-
-                if file_two.turn > file_one.turn:
-                    player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
+                    if file_two.turn > file_one.turn:
+                        player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
 
 def main():
     while (file_one.quantl + file_two.quantl) > 0:
@@ -90,6 +112,15 @@ def main():
 
         while file_two.quantl > file_one.quantl:
             player_two_add.player_add() 
+    quantl_file1 = 0
+    quantl_file2 = 0
+    
+    for f in range(len(board_player.board_ret)):
+        for c in range(len(board_player.board_ret[f])):        
+            if board_player.board_ret[f][c] == file_one.simbol or board_player.board_ret[f][c] == " " + file_one.simbol + " " or board_player.board_ret[f][c] == file_one.m_simbol or board_player.board_ret[f][c] == " " + file_one.m_simbol + " ":
+                quantl_file1 += 1
+            if board_player.board_ret[f][c] == file_two.simbol or board_player.board_ret[f][c] == " " + file_two.simbol + " " or board_player.board_ret[f][c] == file_two.m_simbol or board_player.board_ret[f][c] == " " + file_two.m_simbol + " ":
+                quantl_file2 += 1
             
     while True:
         while file_one.turn+1 > file_two.turn:

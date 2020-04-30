@@ -5,3 +5,6 @@ def put_position(position,mss):
             print("you can only enter numbers of 1 to 7")
             position = input("again: ")
         return int(position)-1
+
+new_quantl_1 = 0
+new_quantl_2 = 0

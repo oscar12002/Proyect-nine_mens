@@ -2,6 +2,7 @@ from position_verify import put_position
 from os import system
 from files_eliminations import Eliminate
 
+
 class Player:
     def __init__(self,board_file,players,names):
         self.board_file = board_file
@@ -31,6 +32,10 @@ class Player:
             else:
                 self.board_file.board_ret[pos_row][pos_column] = self.players.simbol * 1
             self.players.quantl -= 1
+            # if self.players.simbol == "●":
+            #     new_quantl_1 += 1
+            # if self.players.simbol == "○":
+            #     new_quantl_2 += 1
         
         v_e =[[[0,0],[0,3],[0,6]],
             [[1,1],[1,3],[1,5]],
@@ -51,14 +56,39 @@ class Player:
             [[0,6],[3,6],[6,6]]]
         
         eliminate_file = Eliminate(self.board_file,self.players)
+        
+        change1 =[(self.players.simbol,self.players.simbol,self.players.simbol),
+                  (self.players.m_simbol,self.players.simbol,self.players.simbol),
+                  (self.players.simbol,self.players.m_simbol,self.players.simbol),
+                  (self.players.simbol,self.players.simbol,self.players.m_simbol),
+                  (self.players.m_simbol,self.players.m_simbol,self.players.simbol),
+                  (self.players.simbol,self.players.m_simbol,self.players.m_simbol),
+                  (self.players.m_simbol,self.players.simbol,self.players.m_simbol),]
+        
+        change2 =[(self.players.simbol," " + self.players.simbol + " ",self.players.simbol),
+                  (self.players.m_simbol," " + self.players.simbol + " ",self.players.simbol),
+                  (self.players.simbol," " + self.players.m_simbol + " ",self.players.simbol),
+                  (self.players.simbol," " + self.players.simbol + " ",self.players.m_simbol),
+                  (self.players.m_simbol," " + self.players.m_simbol + " ",self.players.simbol),
+                  (self.players.simbol," " + self.players.m_simbol + " ",self.players.m_simbol),
+                  (self.players.m_simbol," " + self.players.simbol + " ",self.players.m_simbol),]
+        
         for e in range(0,len(v_e)):
-            if (self.players.simbol,self.players.simbol,self.players.simbol) == (self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]],self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]],self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]]):
-                self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.players.m_simbol
-                self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]] = self.players.m_simbol
-                self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.players.m_simbol
-                eliminate_file.eliminate_files()
-            if (self.players.simbol," " + self.players.simbol + " ",self.players.simbol) == (self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]],self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]],self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]]):
-                self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.players.m_simbol
-                self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]] = " " + self.players.m_simbol + " "
-                self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.players.m_simbol
-                eliminate_file.eliminate_files()
+            for three_simbols1 in change1:    
+                if three_simbols1 == (self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]],self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]],self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]]):
+                    self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.players.m_simbol
+                    self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]] = self.players.m_simbol
+                    self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.players.m_simbol
+                    eliminate_file.eliminate_files()
+            for three_simbols2 in change2:
+                if three_simbols2 == (self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]],self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]],self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]]):
+                    self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.players.m_simbol
+                    self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]] = " " + self.players.m_simbol + " "
+                    self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.players.m_simbol
+                    eliminate_file.eliminate_files()
+
+
+# file_one = File("●","◍")
+# file_two = File("○","◌")
+# player_one_add = Player(board_player, file_one, name_of_player_one)
+# player_two_add = Player(board_player, file_two, name_of_player_two)

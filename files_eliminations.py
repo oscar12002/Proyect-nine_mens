@@ -3,6 +3,7 @@ from os import system
 from position_verify import put_position
 
 
+
 class Eliminate:
     def __init__(self,board_e,file_eliminate):
         self.board_e = board_e
@@ -24,13 +25,16 @@ class Eliminate:
                 if self.board_e.board_ret[row_eliminate][column_eliminate] == "○":
                     self.board_e.board_ret[row_eliminate][column_eliminate] = "·"
                     eliminate_turn += 1
+                    
                 if self.board_e.board_ret[row_eliminate][column_eliminate] == " ○ ":
                     self.board_e.board_ret[row_eliminate][column_eliminate] = " · "
                     eliminate_turn += 1
+                    
             if self.file_eliminate.simbol == "○":
                 if self.board_e.board_ret[row_eliminate][column_eliminate] == "●":
                     self.board_e.board_ret[row_eliminate][column_eliminate] = "·"
                     eliminate_turn += 1
+                    
                 if self.board_e.board_ret[row_eliminate][column_eliminate] == " ● ":
                     self.board_e.board_ret[row_eliminate][column_eliminate] = " · "
                     eliminate_turn += 1
