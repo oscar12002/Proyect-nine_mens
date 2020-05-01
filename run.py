@@ -23,8 +23,12 @@ player_move_one = Move(board_player, file_one, name_of_player_one)
 player_move_two = Move(board_player, file_two, name_of_player_two)
 
 #  board_2.board_def()
+
+quantl_files_1 = 0
+quantl_files_2 = 0
 def movements(board_2, names):
-            system("cls")
+            global quantl_files_1, quantl_files_2
+            # system("cls")
             board_2.board_def()
             
             print("turn of: {}".format(names))
@@ -42,9 +46,6 @@ def movements(board_2, names):
 
             move_to_column = input("move to column: ")
             pos_move_to_column = put_position(move_to_column,"move to colunm: ")
-            
-            quantl_files_1 = 0
-            quantl_files_2 = 0
             
             for e in range(len(board_2.board_ret)):
                 for fil in board_2.board_ret[e]:
@@ -181,8 +182,9 @@ def movements(board_2, names):
 
                         if file_two.turn > file_one.turn:
                             player_move_two.fun_move(pos_select_row,pos_select_column,pos_move_to_row,pos_move_to_column)
-
+            
 def main():
+    global quantl_files_1, quantl_files_2
     while (file_one.quantl + file_two.quantl) > 0:
         while file_one.quantl+1 > file_two.quantl:
             player_one_add.player_add()
@@ -193,9 +195,29 @@ def main():
     while True:
         while file_one.turn+1 > file_two.turn:
             movements(board_player,player_move_one.names)
-
+            print(quantl_files_1)
+            if quantl_files_1 == 2:
+                system("cls")
+                print("player '{}' haven't enough files. player '{}' WIN!!!!".format(player_move_one.names,player_move_two.names))
+                return False
+            if quantl_files_2 == 2:
+                system("cls")
+                print("player '{}' haven't enough files. player '{}' WIN!!!!".format(player_move_two.names,player_move_one.names))
+                return False
+            quantl_files_1 = 0
+            quantl_files_2 = 0
         while file_two.turn > file_one.turn:
             movements(board_player,player_move_two.names)
+            if quantl_files_1 == 2:
+                system("cls")
+                print("player '{}' haven't enough files. player '{}' WIN!!!!".format(player_move_one.names,player_move_two.names))
+                return False
+            if quantl_files_2 == 2:
+                system("cls")
+                print("player '{}' haven't enough files. player '{}' WIN!!!!".format(player_move_two.names,player_move_one.names))
+                return False
+            quantl_files_1 = 0
+            quantl_files_2 = 0
             
 if __name__ == '__main__':
     try:
