@@ -2,7 +2,7 @@ class File:
     def __init__(self, simbol, m_simbol):
         self.simbol = simbol
         self.m_simbol = m_simbol
-        self.quantl = 9
+        self.quantl = 5
         self.turn = 0
         
     def file_quantly(self):
