@@ -70,7 +70,7 @@ class Player:
         # here is verify if there a widmill
         for e in range(0,len(v_e)):
             for three_simbols1 in change1:   
-                # this condition verify if in the board there a widmill
+                # this condition verify if in the board there a widmill                                
                 if three_simbols1 == (self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]], self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]], self.board_file.board_ret[v_e[e][2][0]][v_e[e][2][1]]):
                     self.board_file.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.players.m_simbol
                     self.board_file.board_ret[v_e[e][1][0]][v_e[e][1][1]] = self.players.m_simbol

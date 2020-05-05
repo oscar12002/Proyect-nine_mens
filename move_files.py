@@ -66,21 +66,21 @@ class Move:
         eliminate_file = Eliminate(self.board_2,self.player_mov) # this is the object of the class Eliminate
         
         # change1 and chage2 are arrays that contains the possible form in that a widmill can be
-        change1 =[(self.players.simbol, self.players.simbol, self.players.simbol),
-                  (self.players.m_simbol, self.players.simbol, self.players.simbol),
-                  (self.players.simbol, self.players.m_simbol, self.players.simbol),
-                  (self.players.simbol, self.players.simbol, self.players.m_simbol),
-                  (self.players.m_simbol, self.players.m_simbol, self.players.simbol),
-                  (self.players.simbol, self.players.m_simbol, self.players.m_simbol),
-                  (self.players.m_simbol, self.players.simbol, self.players.m_simbol),]
+        change1 =[(self.player_mov.simbol, self.player_mov.simbol, self.player_mov.simbol),
+                  (self.player_mov.m_simbol, self.player_mov.simbol, self.player_mov.simbol),
+                  (self.player_mov.simbol, self.player_mov.m_simbol, self.player_mov.simbol),
+                  (self.player_mov.simbol, self.player_mov.simbol, self.player_mov.m_simbol),
+                  (self.player_mov.m_simbol, self.player_mov.m_simbol, self.player_mov.simbol),
+                  (self.player_mov.simbol, self.player_mov.m_simbol, self.player_mov.m_simbol),
+                  (self.player_mov.m_simbol, self.player_mov.simbol, self.player_mov.m_simbol),]
         
-        change2 =[(self.players.simbol, " " + self.players.simbol + " ", self.players.simbol),
-                  (self.players.m_simbol, " " + self.players.simbol + " ", self.players.simbol),
-                  (self.players.simbol, " " + self.players.m_simbol + " ", self.players.simbol),
-                  (self.players.simbol, " " + self.players.simbol + " ", self.players.m_simbol),
-                  (self.players.m_simbol, " " + self.players.m_simbol + " ", self.players.simbol),
-                  (self.players.simbol, " " + self.players.m_simbol + " ", self.players.m_simbol),
-                  (self.players.m_simbol, " " + self.players.simbol + " ", self.players.m_simbol),]
+        change2 =[(self.player_mov.simbol, " " + self.player_mov.simbol + " ", self.player_mov.simbol),
+                  (self.player_mov.m_simbol, " " + self.player_mov.simbol + " ", self.player_mov.simbol),
+                  (self.player_mov.simbol, " " + self.player_mov.m_simbol + " ", self.player_mov.simbol),
+                  (self.player_mov.simbol, " " + self.player_mov.simbol + " ", self.player_mov.m_simbol),
+                  (self.player_mov.m_simbol, " " + self.player_mov.m_simbol + " ", self.player_mov.simbol),
+                  (self.player_mov.simbol, " " + self.player_mov.m_simbol + " ", self.player_mov.m_simbol),
+                  (self.player_mov.m_simbol, " " + self.player_mov.simbol + " ", self.player_mov.m_simbol),]
         
         # here is verify if there a widmill
         for e in range(0,len(v_e)):
