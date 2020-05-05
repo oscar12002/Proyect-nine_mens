@@ -1,5 +1,5 @@
 class Board:
-    def __init__(self):  
+    def __init__(self): # Board skeleton 
         self.board_ret = [["·","——","——","·","——","——","·"],
                           ["| ","·","——","·","——","·"," |"],
                           ["| ","| ","·","·","·"," |"," |"],
@@ -8,7 +8,7 @@ class Board:
                           ["| ","·","——","·","——","·"," |"],
                           ["·","——","——","·","——","——","·"]]
         
-    def board_def(self):
+    def board_def(self): # This function draws the board
         r = 1
         for e in range(0,len(self.board_ret)):
             print(r,end=" ")
