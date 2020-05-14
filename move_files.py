@@ -16,6 +16,9 @@ class Move:
         if self.board_2.board_ret[r_s][c_s] in (self.player_mov.m_simbol, " " + self.player_mov.m_simbol + " "):
             if self.board_2.board_ret[r_s][c_s] == self.player_mov.m_simbol:
                 self.board_2.board_ret[r_s][c_s] = self.player_mov.simbol
+            else:
+                self.board_2.board_ret[r_s][c_s] = " " + self.player_mov.simbol + " "
+                
 
         # this is a condition for verific if the position is valid
         if self.board_2.board_ret[r_s][c_s] in (self.player_mov.simbol, " " + self.player_mov.simbol + " "):
@@ -36,7 +39,8 @@ class Move:
                             self.board_2.board_ret[r_s][c_s] = board_original.board_ret[r_s][c_s]
                     self.player_mov.turn -= 1
                     
-        eliminate_file = Eliminate(self.board_2,self.player_mov) # this is the object of the class Eliminate
+        
+        # this is the object of the class Eliminate
         
         # this is an array with all possible mills        
         v_e =  [[[0,0],[0,3],[0,6]],
@@ -82,6 +86,7 @@ class Move:
                     self.board_2.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.player_mov.m_simbol
                     self.board_2.board_ret[v_e[e][1][0]][v_e[e][1][1]] = self.player_mov.m_simbol
                     self.board_2.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.player_mov.m_simbol
+                    eliminate_file = Eliminate(self.board_2,self.player_mov)
                     eliminate_file.eliminate_files()
             # some positions has two space because if not the board is deformed
             # then the process is done twice
@@ -90,4 +95,5 @@ class Move:
                     self.board_2.board_ret[v_e[e][0][0]][v_e[e][0][1]] = self.player_mov.m_simbol
                     self.board_2.board_ret[v_e[e][1][0]][v_e[e][1][1]] = " " + self.player_mov.m_simbol + " "
                     self.board_2.board_ret[v_e[e][2][0]][v_e[e][2][1]] = self.player_mov.m_simbol
+                    eliminate_file = Eliminate(self.board_2,self.player_mov)
                     eliminate_file.eliminate_files()
