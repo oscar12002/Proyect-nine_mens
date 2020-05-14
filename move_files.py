@@ -12,38 +12,11 @@ class Move:
         self.player_mov = player_mov
         
     def fun_move(self, r_s, c_s, r_n, c_n):
-        # this is an array with all possible mills
-        v_e =  [[[0,0],[0,3],[0,6]],
-                [[1,1],[1,3],[1,5]],
-                [[2,2],[2,3],[2,4]],
-                [[3,0],[3,1],[3,2]],
-                [[3,4],[3,5],[3,6]],
-                [[4,2],[4,3],[4,4]],
-                [[5,1],[4,3],[5,5]],
-                [[6,0],[6,3],[6,6]],
-                
-                [[1,1],[3,1],[5,1]],
-                [[0,0],[3,0],[6,0]],
-                [[2,2],[3,2],[4,2]],
-                [[0,3],[1,3],[2,3]],
-                [[4,3],[5,3],[6,3]],
-                [[2,4],[3,4],[4,4]],
-                [[1,5],[3,5],[5,5]],
-                [[0,6],[3,6],[6,6]]]
-        # in this part it is verified that when the player selects a file of one widmill, that file and all widmill
-        # become the principal file
-        for convert in v_e:
-            if [r_s, c_s] in convert:
-                if self.board_2.board_ret[convert[0][0]][convert[0][1]] == self.player_mov.m_simbol and self.board_2.board_ret[convert[1][0]][convert[1][1]] == " " + self.player_mov.m_simbol + " " and self.board_2.board_ret[convert[2][0]][convert[2][1]] == self.player_mov.m_simbol:
-                    self.board_2.board_ret[convert[0][0]][convert[0][1]] = self.player_mov.simbol
-                    self.board_2.board_ret[convert[1][0]][convert[1][1]] = " " + self.player_mov.simbol + " "
-                    self.board_2.board_ret[convert[2][0]][convert[2][1]] = self.player_mov.simbol
-                    
-                if self.board_2.board_ret[convert[0][0]][convert[0][1]] == self.player_mov.m_simbol and self.board_2.board_ret[convert[1][0]][convert[1][1]] == self.player_mov.m_simbol and self.board_2.board_ret[convert[2][0]][convert[2][1]] == self.player_mov.m_simbol:
-                    self.board_2.board_ret[convert[0][0]][convert[0][1]] = self.player_mov.simbol
-                    self.board_2.board_ret[convert[1][0]][convert[1][1]] = self.player_mov.simbol
-                    self.board_2.board_ret[convert[2][0]][convert[2][1]] = self.player_mov.simbol
-                    
+        # convert the second file in the first file for the player can move it
+        if self.board_2.board_ret[r_s][c_s] in (self.player_mov.m_simbol, " " + self.player_mov.m_simbol + " "):
+            if self.board_2.board_ret[r_s][c_s] == self.player_mov.m_simbol:
+                self.board_2.board_ret[r_s][c_s] = self.player_mov.simbol
+
         # this is a condition for verific if the position is valid
         if self.board_2.board_ret[r_s][c_s] in (self.player_mov.simbol, " " + self.player_mov.simbol + " "):
                 if self.board_2.board_ret[r_n][c_n] in ("·", " · "):
@@ -64,6 +37,25 @@ class Move:
                     self.player_mov.turn -= 1
                     
         eliminate_file = Eliminate(self.board_2,self.player_mov) # this is the object of the class Eliminate
+        
+        # this is an array with all possible mills        
+        v_e =  [[[0,0],[0,3],[0,6]],
+                [[1,1],[1,3],[1,5]],
+                [[2,2],[2,3],[2,4]],
+                [[3,0],[3,1],[3,2]],
+                [[3,4],[3,5],[3,6]],
+                [[4,2],[4,3],[4,4]],
+                [[5,1],[4,3],[5,5]],
+                [[6,0],[6,3],[6,6]],
+                
+                [[1,1],[3,1],[5,1]],
+                [[0,0],[3,0],[6,0]],
+                [[2,2],[3,2],[4,2]],
+                [[0,3],[1,3],[2,3]],
+                [[4,3],[5,3],[6,3]],
+                [[2,4],[3,4],[4,4]],
+                [[1,5],[3,5],[5,5]],
+                [[0,6],[3,6],[6,6]]]
         
         # change1 and chage2 are arrays that contains the possible form in that a widmill can be
         change1 =[(self.player_mov.simbol, self.player_mov.simbol, self.player_mov.simbol),
